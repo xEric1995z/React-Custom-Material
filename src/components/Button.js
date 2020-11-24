@@ -1,4 +1,4 @@
-import { Console } from '../utils/console.util';
+import { Console } from '../utils/Console.util';
 
 export const Button = () => {
 

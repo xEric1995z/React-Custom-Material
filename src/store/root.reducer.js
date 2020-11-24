@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { CustomReducer } from './custom.reducer';
+import { CustomReducer } from './Custom.reducer';
 
 export const RootReducer = combineReducers({
    custom: CustomReducer

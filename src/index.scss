@@ -1,8 +1,15 @@
+@import 'styles/Text.scss';
+
 $darkgrey: #2b2b2b;
 
 * {
   margin: 0;
   padding: 0;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;;
 }
 
 body {
@@ -11,9 +18,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  height: inherit;
+}
+
+//portrait tablet
+@media screen and (max-width: 800px)  {
+  html {
+    font-size: 12px;
+  }
+  body {
+    background-color: honeydew;
+  }
+}
+
+//landscape tablet
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  html {
+    font-size: 14px;   
+  }
+  body {
+    background-color: lightgray;
+  }
+}
+
