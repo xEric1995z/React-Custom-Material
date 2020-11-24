@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
+import './App.scss';
+import Dashboard from "./pages/Dashboard";
 
-function App() {
+const App = ({
+  str, dispatchCustom
+}) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <p>Testing</p>
+        <p>{str}</p>
+        <button onClick={dispatchCustom}>Redux</button>
+        <Switch>
+          <Route path="/">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    str: state.custom.str
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatchCustom: () => dispatch({
+      type: 'UPDATE_STR'
+    })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
